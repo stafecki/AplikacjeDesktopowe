@@ -21,17 +21,18 @@ int main() {
 
     for(int i = 0; i < rows - 1; ++i) {
         for(int j = 0; j < cols - 1; ++j) {
-            // Trójkąt 1
-            double a1 = sqrt(pow(height[i+1][j] - height[i][j], 2) + 1.0);
-            double b1 = sqrt(pow(height[i][j+1] - height[i][j], 2) + 1.0);
-            double c1 = sqrt(pow(height[i+1][j] - height[i][j+1], 2) + 2.0);
+            // Trójkąt 1: (i,j), (i+1,j), (i,j+1)
+            double a1 = sqrt(pow(height[i+1][j] - height[i][j], 2) + 1.0); // (i,j)-(i+1,j)
+            double b1 = sqrt(pow(height[i][j+1] - height[i][j], 2) + 1.0); // (i,j)-(i,j+1)
+            double c1 = sqrt(pow(height[i+1][j] - height[i][j+1], 2) + 2.0); // (i+1,j)-(i,j+1)
+
             double s1 = (a1 + b1 + c1) / 2;
             double area1 = sqrt(s1 * (s1 - a1) * (s1 - b1) * (s1 - c1));
 
-            // Trójkąt 2
-            double a2 = sqrt(pow(height[i+1][j+1] - height[i+1][j], 2) + 1.0);
-            double b2 = sqrt(pow(height[i+1][j+1] - height[i][j+1], 2) + 1.0);
-            double c2 = sqrt(pow(height[i+1][j] - height[i][j+1], 2) + 2.0);
+            // Trójkąt 2: (i+1,j), (i+1,j+1), (i,j+1)
+            double a2 = sqrt(pow(height[i+1][j+1] - height[i+1][j], 2) + 1.0); // (i+1,j)-(i+1,j+1)
+            double b2 = sqrt(pow(height[i+1][j+1] - height[i][j+1], 2) + 1.0); // (i+1,j+1)-(i,j+1)
+            double c2 = sqrt(pow(height[i+1][j] - height[i][j+1], 2) + 2.0); // (i+1,j)-(i,j+1)
             double s2 = (a2 + b2 + c2) / 2;
             double area2 = sqrt(s2 * (s2 - a2) * (s2 - b2) * (s2 - c2));
 
