@@ -20,25 +20,32 @@ int main() {
     double total_area = 0.0;
 
     for(int i = 0; i < rows - 1; ++i) {
-        for(int j = 0; j < cols - 1; ++j) {
-            // Trójkąt 1: (i,j), (i+1,j), (i,j+1)
-            double a1 = sqrt(pow(height[i+1][j] - height[i][j], 2) + 1.0); // (i,j)-(i+1,j)
-            double b1 = sqrt(pow(height[i][j+1] - height[i][j], 2) + 1.0); // (i,j)-(i,j+1)
-            double c1 = sqrt(pow(height[i+1][j] - height[i][j+1], 2) + 2.0); // (i+1,j)-(i,j+1)
+    for(int j = 0; j < cols - 1; ++j) {
+        // Trójkąt 1: (i,j), (i+1,j), (i,j+1)
+        double ax = i, ay = j, az = height[i][j];
+        double bx = i+1, by = j, bz = height[i+1][j];
+        double cx = i, cy = j+1, cz = height[i][j+1];
+        double abx = bx - ax, aby = by - ay, abz = bz - az;
+        double acx = cx - ax, acy = cy - ay, acz = cz - az;
+        double nx = aby * acz - abz * acy;
+        double ny = abz * acx - abx * acz;
+        double nz = abx * acy - aby * acx;
+        double area1 = 0.5 * sqrt(nx*nx + ny*ny + nz*nz);
 
-            double s1 = (a1 + b1 + c1) / 2;
-            double area1 = sqrt(s1 * (s1 - a1) * (s1 - b1) * (s1 - c1));
+        // Trójkąt 2: (i+1,j), (i+1,j+1), (i,j+1)
+        ax = i+1; ay = j; az = height[i+1][j];
+        bx = i+1; by = j+1; bz = height[i+1][j+1];
+        cx = i; cy = j+1; cz = height[i][j+1];
+        abx = bx - ax; aby = by - ay; abz = bz - az;
+        acx = cx - ax; acy = cy - ay; acz = cz - az;
+        nx = aby * acz - abz * acy;
+        ny = abz * acx - abx * acz;
+        nz = abx * acy - aby * acx;
+        double area2 = 0.5 * sqrt(nx*nx + ny*ny + nz*nz);
 
-            // Trójkąt 2: (i+1,j), (i+1,j+1), (i,j+1)
-            double a2 = sqrt(pow(height[i+1][j+1] - height[i+1][j], 2) + 1.0); // (i+1,j)-(i+1,j+1)
-            double b2 = sqrt(pow(height[i+1][j+1] - height[i][j+1], 2) + 1.0); // (i+1,j+1)-(i,j+1)
-            double c2 = sqrt(pow(height[i+1][j] - height[i][j+1], 2) + 2.0); // (i+1,j)-(i,j+1)
-            double s2 = (a2 + b2 + c2) / 2;
-            double area2 = sqrt(s2 * (s2 - a2) * (s2 - b2) * (s2 - c2));
-
-            total_area += area1 + area2;
-        }
+        total_area += area1 + area2;
     }
+}
 
     std::cout << "Pole powierzchni terenu: " << total_area << " m^2" << std::endl;
 
