@@ -1,0 +1,3 @@
+D:/cppFiles/losowaDroga/cmake-build-debug/CMakeFiles/losowaDroga.dir
+D:/cppFiles/losowaDroga/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/cppFiles/losowaDroga/cmake-build-debug/CMakeFiles/rebuild_cache.dir
