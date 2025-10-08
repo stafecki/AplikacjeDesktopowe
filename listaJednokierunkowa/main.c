@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<locale.h>
 #include "list.h"
+#include "queue.h"
 #include "stack.h"
 int main() {
     setlocale(LC_ALL, "");
@@ -79,5 +80,47 @@ int main() {
     stack_print(stack);
 
     stack_clear(&stack);
+
+    Queue q;
+    int wartosc;
+
+    // Inicjalizacja kolejki
+    queue_init(&q);
+
+    // Dodajemy elementy
+    printf("Dodajê do kolejki: 5\n");
+    queue_enqueue(&q, 5);
+    queue_print(&q);
+
+    printf("Dodajê do kolejki: 10\n");
+    queue_enqueue(&q, 10);
+    queue_print(&q);
+
+    printf("Dodajê do kolejki: 15\n");
+    queue_enqueue(&q, 15);
+    queue_print(&q);
+
+    // Zdejmujemy element
+    if (queue_dequeue(&q, &wartosc)) {
+        printf("Zdjêto z kolejki: %d\n", wartosc);
+    }
+    else {
+        printf("Kolejka jest pusta!\n");
+    }
+    queue_print(&q);
+
+    // Zdejmujemy nastêpny element
+    if (queue_dequeue(&q, &wartosc)) {
+        printf("Zdjêto z kolejki: %d\n", wartosc);
+    }
+    else {
+        printf("Kolejka jest pusta!\n");
+    }
+    queue_print(&q);
+
+    // Czyszczenie kolejki
+    queue_clear(&q);
+    printf("Kolejka zosta³a wyczyszczona.\n");
+    queue_print(&q);
     return 0;
 }
