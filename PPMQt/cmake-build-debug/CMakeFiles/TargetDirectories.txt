@@ -1,0 +1,5 @@
+/Users/patrykstafecki/CLionProjects/PPMQt/cmake-build-debug/CMakeFiles/PPMQt.dir
+/Users/patrykstafecki/CLionProjects/PPMQt/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/patrykstafecki/CLionProjects/PPMQt/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/patrykstafecki/CLionProjects/PPMQt/cmake-build-debug/CMakeFiles/PPMQt_autogen_timestamp_deps.dir
+/Users/patrykstafecki/CLionProjects/PPMQt/cmake-build-debug/CMakeFiles/PPMQt_autogen.dir
